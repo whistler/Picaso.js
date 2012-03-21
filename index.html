@@ -1,4 +1,22 @@
 <html>
+<style>
+
+#album {
+  text-align: center;
+}
+
+img {
+  height: 200px;
+  box-shadow: 4px 0 4px 0 grey;
+  padding: 5px;
+}
+img:hover {
+  position: absolute;
+  top:0;
+  left: 0;
+  height: 400px;
+}
+</style>
 <script src="jquery.js"></script>
 
 <script>
@@ -14,7 +32,7 @@ $(document).ready(function() {
     success: function() {
       var album = eval('(' + response.responseText + ')');
       for (entry in album.feed.entry) {
-        $("#album").append("<img src='"+ album.feed.entry[entry].media$group.media$thumbnail[2].url + "'/>");
+        $("#album").append("<img class='photo' src='"+ album.feed.entry[entry].media$group.media$thumbnail[2].url + "'/>");
       }
     }
   });
@@ -25,6 +43,7 @@ $(document).ready(function() {
 
 <body>
 <div id="album">
+<img src='/Users/ibrahim/Pictures/Creative Photography/Portfolio/Original/Starred Photos/DSC00098-001.JPG' class='photo'><img src='/Users/ibrahim/Pictures/Creative Photography/Portfolio/Original/Starred Photos/DSC05950-001.jpg' class='photo'><img src='/Users/ibrahim/Pictures/Creative Photography/Portfolio/Original/Starred Photos/DSC06293-001.jpg' class='photo'><img src='/Users/ibrahim/Pictures/Creative Photography/Portfolio/Original/Starred Photos/DSC06565-001.jpg' class='photo'><img src='/Users/ibrahim/Pictures/Creative Photography/Portfolio/Original/Starred Photos/DSC06861-001.jpg' class='photo'><img src='/Users/ibrahim/Pictures/Creative Photography/Portfolio/Original/Starred Photos/IMG_1685-001.JPG' class='photo'><img src='/Users/ibrahim/Pictures/Creative Photography/Portfolio/Original/Starred Photos/IMG_9192-001.JPG' class='photo'><img src='/Users/ibrahim/Pictures/Creative Photography/Portfolio/Original/Starred Photos/_MG_1380-001.JPG' class='photo'>
 </div>
 </body>
 </html>
