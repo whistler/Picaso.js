@@ -4,23 +4,42 @@ Picaso.js
 Introduction
 ------------
 
-This gem lets you showcase an album from Picasa Web Albums on your own website. 
-Work is underway to make it look pretty.
+This gem lets you showcase an album from Google+ (previously Picasa Web Albums)
+on your own website. 
 
-Settings
---------
+Usage
+-----
+1. Find your Google+ user id and album id
+  - Go to the album Google+
+  - Click on the rss feed for the album
+  - Extract user id and album id from the URL
+  
+Example:
 
-Picaso.js can displays one complete album on your web site, to configure it to use 
-it with your album, go to the album on Picasa Web Albums and click on the rss feed
-for the album, the url would look something like this:
+    https://plus.google.com/photos/117489843558070583795/albums/5683232756186942865
+  
+For the above URL the number after "/photos/" is the user id 
+(117489843558070583795) and the number after "/albums/" is the album id 
+(5683232756186942865)
+  
+2. Create a div with an id to load images for example
 
-    https://picasaweb.google.com/data/feed/base/user/117489843558070583795/albumid/5683232756186942865?alt=json&kind=photo&hl=en_US
-    
-The number after '/user/' is your user id and the number after '/albumid/' is, you figure
-it out right your album id. Just change the following two lines to your own user and album. 
+    <div id="album">
+    </div>
 
-    var userId = "your_user_id";
-    var albumId = "your_album_id";
+3. Call Picaso.js in the format picaso(jQuerySelectorForDiv, userID, albumID);
+
+    <script>
+      picaso("#album","117489843558070583795","5683232756186942865");
+    </script>
+
+4. Style your gallery. Each image has the class 'photo'. Example:
+   
+   #album .photo {
+     height: 200px;
+     box-shadow: 4px 0 4px 0 grey;
+     padding: 5px;
+   } 
 
 Dependencies
 ------------
